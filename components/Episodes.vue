@@ -6,7 +6,7 @@
           <img :src="ep.coverImage" class="card-img-top" aria-hidden="true" />
           <div class="card-body">
             <h5 class="card-title">{{ ep.title }}</h5>
-            <span class="badge episode__num">{{ ep.episodeNumber }}</span>
+            <span class="badge episode-num">{{ ep.episodeNumber }}</span>
             <p class="card-text">{{ ep.description }}</p>
             <button class="btn btn-outline-dark">Listen</button>
           </div>
@@ -37,9 +37,8 @@ export default {
     margin-bottom: 1rem;
   }
 
-  .episode__num {
-    background: var(--indigo);
-    color: white;
+  .card-title {
+    margin-bottom: -0.25rem;
   }
 }
 </style>

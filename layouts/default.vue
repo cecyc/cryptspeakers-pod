@@ -36,4 +36,19 @@ html {
 .no-left-padding {
   padding-left: 0;
 }
+
+.episode-num {
+  background: var(--indigo);
+  color: white;
+  margin: 1rem 0;
+}
+
+h1, h2 {
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+p, button {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
 </style>

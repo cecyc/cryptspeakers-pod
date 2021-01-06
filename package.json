@@ -13,6 +13,7 @@
     "@nuxtjs/fontawesome": "^1.1.2",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.17.3",
+    "contentful": "^8.1.7",
     "core-js": "^3.6.5",
     "node-sass": "^5.0.0",
     "nuxt": "^2.14.6",

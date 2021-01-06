@@ -1,9 +1,9 @@
 <template>
   <nav class="container">
     <h1>CryptSpeakers</h1>
-    <ul class="nav__links">
-      <li><a href="/about" class="nav__link">About</a></li>
-      <li><a href="/episodes" class="nav__link">Episodes</a></li>
+    <ul class="nav-links">
+      <li><a href="/about" class="nav-link">About</a></li>
+      <li><a href="/episodes" class="nav-link">Episodes</a></li>
     </ul>
   </nav>
 </template>
@@ -24,14 +24,23 @@ nav ul {
   padding: 0 !important;
 }
 
-.nav__links {
+.nav-links {
   margin: 0 0 0 2rem;
   margin-left: 2rem;
   display: flex;
 }
 
-.nav__link {
-  margin-left: 2rem;
+.nav-link {
+  border-bottom: 2px solid transparent;
   color: var(--indigo);
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 2rem;
+  margin-top: 2px;
+}
+
+.nav-link:hover {
+  border-bottom: 2px solid var(--indigo);
 }
 </style>
