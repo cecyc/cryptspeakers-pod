@@ -9,7 +9,7 @@
             <h5 class="card-title">{{ ep.title }}</h5>
             <span class="badge episode-num">{{ ep.episodeNumber }}</span>
             <p class="card-text">{{ ep.description }}</p>
-            <button class="btn btn-outline-dark">Listen</button>
+            <a :href="`/episodes/${ep.episodeUrl}`" class="btn btn-outline-dark ep-btn">Listen</a>
           </div>
         </div>
       </div>

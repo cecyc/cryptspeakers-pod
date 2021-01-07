@@ -48,7 +48,7 @@ h1, h2 {
   text-transform: uppercase;
 }
 
-p, button {
+p, .ep-btn {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 </style>

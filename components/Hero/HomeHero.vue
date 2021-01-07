@@ -25,7 +25,7 @@
             ></iframe>
           </div>
           <div class="hero-subscribe">
-            <button class="btn btn-outline-light">Subscribe</button>
+            <a class="btn btn-outline-light ep-btn">Subscribe</a>
           </div>
       </template>
     </Hero>
