@@ -1,3 +1,6 @@
+const { getClient } = require('./plugins/contentful')
+const contentful = getClient()
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: "static",
@@ -58,5 +61,19 @@ export default {
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {}
+  build: {},
+  generate: {
+    routes () {
+      return Promise.all([
+        contentful.getEntries({
+          'content_type': 'episode'
+        }),
+      ])
+      .then(([episodes]) => {
+        return [
+          ...episodes.items.map(episode => `/episodes/${episode.fields.episodeUrl}`),
+        ]
+      })
+    }
+  },
 };
