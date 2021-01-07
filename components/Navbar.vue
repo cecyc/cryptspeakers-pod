@@ -1,6 +1,6 @@
 <template>
   <nav class="container">
-    <h1>CryptSpeakers</h1>
+    <h1><a href="/" class="home-btn">CryptSpeakers</a></h1>
     <ul class="nav-links">
       <li><a href="/about" class="nav-link">About</a></li>
       <li><a href="/episodes" class="nav-link">Episodes</a></li>
@@ -42,5 +42,14 @@ nav ul {
 
 .nav-link:hover {
   border-bottom: 2px solid var(--indigo);
+}
+
+.home-btn {
+  color: black;
+  text-decoration: none;
+}
+
+.home-btn:hover {
+  color: var(--indigo);
 }
 </style>

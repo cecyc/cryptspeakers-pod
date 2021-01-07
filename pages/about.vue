@@ -7,7 +7,7 @@
           v-for="(host, idx) in hostData"
           :key="idx"
           :name="host.name"
-          :image="host.image"
+          :image="host.image.fields.file.url"
           :bio="host.bio"
           :twitter="host.twitter"
         />
@@ -16,13 +16,18 @@
   </div>
 </template>
 <script>
-import hosts from "~/static/hosts.js";
+import { getClient } from '~/plugins/contentful'
+const contentful = getClient()
 
 export default {
-  data() {
-    return {
-      hostData: hosts
-    };
+  asyncData () {
+    return contentful.getEntries({
+      content_type: 'host'
+    }).then((response) => {
+      return {
+        hostData: response.items.map((item) => { return item.fields })
+      }
+    })
   }
 };
 </script>
