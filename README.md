@@ -1,20 +1,11 @@
-# cryptspeakersPod
+# CryptSpeakers Podcast Website
 
-## Build Setup
+[CryptSpeakers](https://cryptspeakers.com/) is a podcast that discusses the 90s cult TV show Tales from the Crypt in chronological order. 
 
-```bash
-# install dependencies
-$ yarn install
+## Specs
 
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+* Website is built using Nuxt.js as a framework
+* Content managed via Contentful
+* Styles and grid via Bootstrap
+* Icons are Font Awesome
+* Fonts via Google Fonts
