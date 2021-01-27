@@ -20,6 +20,12 @@
         <p>{{ episode.description }}</p>
       </div>
     </div>
+    <div v-if="episode.spotifyId" class="row">
+      <div class="col-lg-6">
+        <h3>Listen!</h3>
+        <Spotify :episodeId="episode.spotifyId" />
+      </div>
+    </div>
   </div>
 </template>
 <script>

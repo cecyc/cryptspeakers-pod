@@ -46,4 +46,9 @@
     padding: 2rem 0;
   }
 }
+
+.ep-btn {
+   margin-right: 1rem;
+   margin-bottom: 1rem;
+ }
 </style>

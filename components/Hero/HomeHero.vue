@@ -11,34 +11,45 @@
             Tales from the Crypt. Will it be a Keeper or a Stinker? Only one way
             to find out. Listen and subscribe below!
           </p>
-          <div v-if="latestEpisode" class="latest-episode">
-            <h3>Latest episode</h3>
-            <iframe
-              width="100%"
-              height="166"
-              scrolling="no"
-              frameborder="no"
-              allow="autoplay"
-              :src="
-                `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${ep.trackId}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_artwork=false&show_user=false`
-              "
-            ></iframe>
-          </div>
-          <div class="hero-subscribe">
-            <a class="btn btn-outline-light ep-btn">Subscribe</a>
+          <div v-if="providers" class="hero-subscribe">
+            <a v-for="(provider, id) in providers" 
+              :key="id" 
+              :href="provider.subscriptionUrl"
+              class="btn btn-outline-light ep-btn">
+                Subscribe on {{ provider.name }}
+            </a>
           </div>
       </template>
     </Hero>
 </template>
 <script>
 import CryptSpeakersHero from "~/assets/images/cryptspeakers-hero.jpg";
+import { getClient } from "~/plugins/contentful";
+const contentful = getClient();
 
 export default {
   data() {
     return {
       heroImg: CryptSpeakersHero,
-      latestEpisode: false,
+      providers: [],
     }
+  },
+  methods: {
+    fetchProviders() {
+      contentful
+        .getEntries({
+          content_type: "metaData"
+        })
+        .then(response => {
+          const data = response.items[0].fields.providers;
+          this.providers = data.map(item => {
+            return item.fields;
+          });
+        });
+    }
+  },
+  mounted() {
+    this.fetchProviders();
   }
 }
 </script>
