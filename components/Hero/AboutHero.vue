@@ -9,13 +9,46 @@
     <template v-slot:right>
       <h3>Listen on</h3>
         <div class="about-subscribe">
-          <button class="btn btn-outline-light">Apple Podcasts</button>
-          <button class="btn btn-outline-light">Stitcher App</button>
-          <button class="btn btn-outline-light">Soundcloud</button>
+          <a
+            v-for="(provider, id) in providers"
+            :key="id"
+            :href="provider.subscriptionUrl"
+            class="btn btn-outline-light ep-btn">
+              {{ provider.name }}
+          </a>
         </div>
     </template>
   </Hero>
 </template>
+<script>
+import { getClient } from "~/plugins/contentful";
+const contentful = getClient();
+
+export default {
+  data() {
+    return {
+      providers: [],
+    }
+  },
+  methods: {
+    fetchProviders() {
+      contentful
+        .getEntries({
+          content_type: "metaData"
+        })
+        .then(response => {
+          const data = response.items[0].fields.providers;
+          this.providers = data.map(item => {
+            return item.fields;
+          });
+        });
+    }
+  },
+  mounted() {
+    this.fetchProviders();
+  }
+}
+</script>
 <style lang="scss" scoped>
 .about-subscribe {
   margin-top: 1rem;

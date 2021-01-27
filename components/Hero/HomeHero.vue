@@ -53,9 +53,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
- .ep-btn {
-   margin-right: 1rem;
-   margin-bottom: 1rem;
- }
-</style>
