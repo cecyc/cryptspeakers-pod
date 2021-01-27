@@ -34,7 +34,9 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ["~/plugins/contentful.js"],
+  plugins: [
+  "~/plugins/contentful.js",
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,

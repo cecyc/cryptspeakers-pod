@@ -2,13 +2,12 @@
   <footer>
     <div class="container">
       <div class="row">
-
-        <div class="col-sm-6">
+        <div v-if="providers" class="col-sm-6">
           <h4>Listen on</h4>
           <ul class="footer-listen">
-            <li><a href="">Apple Podcasts</a></li>
-            <li><a href="">Spotify</a></li>
-            <li><a href="">Stitcher</a></li>
+            <li v-for="(provider, id) in providers" :key="id">
+              <a :href="provider.subscriptionUrl">{{ provider.name }}</a>
+            </li>
           </ul>
         </div>
 
@@ -20,24 +19,48 @@
             </span>
           </a>
         </div>
-
       </div>
     </div>
   </footer>
 </template>
 <script>
+import { getClient } from "~/plugins/contentful";
+const contentful = getClient();
+
 export default {
+  data() {
+    return {
+      providers: []
+    };
+  },
   computed: {
     year() {
       return new Date().getFullYear();
     }
+  },
+  methods: {
+    fetchProviders() {
+      contentful
+        .getEntries({
+          content_type: "metaData"
+        })
+        .then(response => {
+          const data = response.items[0].fields.providers;
+          this.providers = data.map(item => {
+            return item.fields;
+          });
+        });
+    }
+  },
+  mounted() {
+    this.fetchProviders();
   }
 };
 </script>
 <style lang="scss" scoped>
 h4 {
   border-bottom: 2px solid black;
-  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
   margin: 2rem 0;
 }
 
