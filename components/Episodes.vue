@@ -7,7 +7,7 @@
           <img :src="ep.coverArt.fields.file.url" class="card-img-top" aria-hidden="true" />
           <div class="card-body">
             <h5 class="card-title">{{ ep.title }}</h5>
-            <span class="badge episode-num">{{ ep.episodeNumber }}</span>
+            <span v-if="ep.episodeNumber" class="badge episode-num">{{ ep.episodeNumber }}</span>
             <p class="card-text">{{ ep.description }}</p>
             <a :href="`/episodes/${ep.episodeUrl}`" class="btn btn-outline-dark ep-btn">Listen</a>
           </div>
