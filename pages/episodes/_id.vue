@@ -8,7 +8,7 @@
           <img :src="imageUrl" :alt="`Episode ${episode.title} cover art`">
         </div>
       </div>
-      <div class="col-sm-6">
+      <div v-if="!episode.hideDetails" class="col-sm-6">
         <h3>Episode Details</h3>
         <p><strong>Director:</strong> {{ episode.director }}</p>
         <p><strong>Writer:</strong> {{ episode.writer }}</p>
